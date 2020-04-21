@@ -1,5 +1,7 @@
 // Setup the calendar with the current date
-$(document).ready(function(){
+$(document).ready(initAll);
+
+function initAll(){
     var date = new Date();
     var today = date.getDate();
     // Set click handlers for DOM elements
@@ -12,7 +14,7 @@ $(document).ready(function(){
     init_calendar(date);
     var events = check_events(today, date.getMonth()+1, date.getFullYear());
     show_events(events, months[date.getMonth()], today);
-});
+}
 
 // Initialize the calendar by appending the HTML dates
 function init_calendar(date) {
@@ -187,17 +189,29 @@ function show_events(events, month, day) {
             var event_card = $("<div class='event-card'></div>");
             var event_name = $("<div class='event-name'>"+events[i]["occasion"]+":</div>");
             var event_name1 = $("<div class='event-name1'>"+events[i]["Description"]+" .</div>");
+            var event_delete = $("<button class='event-delete'>Delete</button>");
+            
             if(events[i]["cancelled"]===true) {
                 $(event_card).css({
                     "border-left": "10px solid #FF1744"
                 });
                 event_name1 = $("<div class='event-cancelled'>Cancelled</div>");
             }
-            $(event_card).append(event_name).append(event_name1);
+            $(event_card).append(event_name).append(event_name1).append(event_delete);
             $(".events-container").append(event_card);
         }
     }
 }
+
+$(document).on('click','button.event-delete',(event) => {
+    // let par = event.currentTarget.parent().children()[0].text();
+    // alert(par);
+    let oc = event.currentTarget.parentNode.children[0].innerText;
+    oc = oc.slice(0,oc.length-1);
+
+    event_data.events = event_data.events.filter(({occasion}) => occasion != oc);
+    initAll();
+});
 
 // Checks if a specific date has any events
 function check_events(day, month, year) {

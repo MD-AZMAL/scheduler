@@ -72,6 +72,27 @@ body {
     text-align: right;
 }
 
+.event-delete {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    font-size: 0.8rem;
+    border-radius: 15px;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 0.23rem 1rem;
+    transition: .2s ease all;
+    color: white;
+    border: none;
+    box-shadow: -1px 5px 10px #FF7DAE;
+    background: #FF1744;
+    background: -moz-linear-gradient(left,  #FF1744 0%, #FF5D95 80%, #FF5D95 100%);
+    background: -webkit-linear-gradient(left,  #FF1744 0%, #FF5D95 80%, #FF5D95 100%);
+    background: linear-gradient(to right,  #FF1744 0%, #FF5D95 80%, #FF5D95 100%);
+}
+
 /*  Calendar wrapper */
 .calendar-container  { 
     float: left;
