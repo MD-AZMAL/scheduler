@@ -137,19 +137,18 @@ function new_event(event) {
     $("#ok-button").unbind().click({date: event.data.date}, function() {
         var date = event.data.date;
         var name = $("#name").val().trim();
-        var count = parseInt($("#count").val().trim());
+        var name1 = $("#name").val().trim();
+       
         var day = parseInt($(".active-date").html());
         // Basic form validation
         if(name.length === 0) {
             $("#name").addClass("error-input");
         }
-        else if(isNaN(count)) {
-            $("#count").addClass("error-input");
-        }
+        
         else {
             $("#dialog").hide(250);
             console.log("new event");
-            new_event_json(name, count, date, day);
+            new_event_json(name, name1, date, day);
             date.setDate(day);
             init_calendar(date);
         }
@@ -157,10 +156,10 @@ function new_event(event) {
 }
 
 // Adds a json event to event_data
-function new_event_json(name, count, date, day) {
+function new_event_json(name, name1, date, day) {
     var event = {
         "occasion": name,
-        "invited_count": count,
+        "Description":name1,
         "year": date.getFullYear(),
         "month": date.getMonth()+1,
         "day": day
@@ -219,7 +218,7 @@ var event_data = {
     "events": [
     {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+       "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10,
@@ -227,7 +226,7 @@ var event_data = {
     },
     {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+        "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10,
@@ -235,7 +234,7 @@ var event_data = {
     },
         {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+        "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10,
@@ -243,14 +242,14 @@ var event_data = {
     },
     {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+       "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10
     },
         {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+        "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10,
@@ -258,14 +257,14 @@ var event_data = {
     },
     {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+        "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10
     },
         {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+       "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10,
@@ -273,14 +272,14 @@ var event_data = {
     },
     {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+        "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10
     },
         {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+        "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10,
@@ -288,14 +287,14 @@ var event_data = {
     },
     {
         "occasion": " Repeated Test Event ",
-        "invited_count": 120,
+        "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 10
     },
     {
         "occasion": " Test Event",
-        "invited_count": 120,
+        "Description": " Details of Event ",
         "year": 2017,
         "month": 5,
         "day": 11
