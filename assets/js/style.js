@@ -129,7 +129,7 @@ function new_event(event) {
     // Event handler for cancel button
     $("#cancel-button").click(function() {
         $("#name").removeClass("error-input");
-        $("#count").removeClass("error-input");
+        $("#name1").removeClass("error-input");
         $("#dialog").hide(250);
         $(".events-container").show(250);
     });
@@ -186,14 +186,14 @@ function show_events(events, month, day) {
         for(var i=0; i<events.length; i++) {
             var event_card = $("<div class='event-card'></div>");
             var event_name = $("<div class='event-name'>"+events[i]["occasion"]+":</div>");
-            var event_count = $("<div class='event-count'>"+events[i]["invited_count"]+" Invited</div>");
+            var event_name1 = $("<div class='event-name1'>"+events[i]["Description"]+" .</div>");
             if(events[i]["cancelled"]===true) {
                 $(event_card).css({
                     "border-left": "10px solid #FF1744"
                 });
-                event_count = $("<div class='event-cancelled'>Cancelled</div>");
+                event_name1 = $("<div class='event-cancelled'>Cancelled</div>");
             }
-            $(event_card).append(event_name).append(event_count);
+            $(event_card).append(event_name).append(event_name1);
             $(".events-container").append(event_card);
         }
     }
